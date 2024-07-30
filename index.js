@@ -29,7 +29,7 @@ const corsOptionsDelegate = function (req, callback) {
     callback(null, corsOptions); // callback expects two parameters: error and options
 };
 
-const dataPath = "./server/data.json";
+const dataPath = "./data.json";
 
 app.get("/v1/api/services", cors(corsOptionsDelegate), (req, res) => {
     let data = readFileSync(dataPath, { encoding: "utf8", flag: "r" });
