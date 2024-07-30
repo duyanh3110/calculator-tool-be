@@ -18,7 +18,7 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowList = ["http:localhost:5173"];
+const allowList = ["https://calculator-tool-nail.netlify.app"];
 const corsOptionsDelegate = function (req, callback) {
     let corsOptions;
     if (allowList.indexOf(req.header("Origin")) !== -1) {
