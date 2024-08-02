@@ -18,6 +18,10 @@ const serviceSchema = new Schema(
             type: Schema.Types.Boolean,
             required: true,
         },
+        extraName: {
+            type: String,
+            required: true,
+        },
         extraPrice: {
             type: Schema.Types.Decimal128,
             required: true,

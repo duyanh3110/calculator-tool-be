@@ -11,12 +11,19 @@ const getServices = async (req, res, next) => {
 };
 
 const postServices = async (req, res, next) => {
-    const { serviceName, servicePrice, isTimmaCustomer, extraPrice } = req.body;
+    const {
+        serviceName,
+        servicePrice,
+        isTimmaCustomer,
+        extraName,
+        extraPrice,
+    } = req.body;
     try {
         const newService = await serviceModel.create({
             serviceName,
             servicePrice,
             isTimmaCustomer,
+            extraName,
             extraPrice,
         });
 
