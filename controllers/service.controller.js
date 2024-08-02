@@ -1,10 +1,19 @@
 import serviceModel from "../models/service.model.js";
 
 const getServices = async (req, res, next) => {
+    const today = new Date();
+
     try {
-        serviceModel.find({}).then(function (services) {
-            res.status(200).json(services);
-        });
+        serviceModel
+            .find({
+                createdAt: {
+                    $gte: today.setUTCHours(0, 0, 0, 0),
+                    $lte: today.setUTCHours(23, 59, 59, 999),
+                },
+            })
+            .then(function (services) {
+                res.status(200).json(services);
+            });
     } catch (error) {
         console.log("Error get services ::: ", error);
     }
