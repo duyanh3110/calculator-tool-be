@@ -20,11 +20,9 @@ const serviceSchema = new Schema(
         },
         extraName: {
             type: String,
-            required: true,
         },
         extraPrice: {
             type: Schema.Types.Decimal128,
-            required: true,
         },
     },
     {
