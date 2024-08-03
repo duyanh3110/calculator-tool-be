@@ -24,6 +24,10 @@ const serviceSchema = new Schema(
         extraPrice: {
             type: Schema.Types.Decimal128,
         },
+        dateValue: {
+            type: String,
+            required: true,
+        },
     },
     {
         timestamps: true,

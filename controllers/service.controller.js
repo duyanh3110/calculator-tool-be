@@ -1,15 +1,10 @@
 import serviceModel from "../models/service.model.js";
 
 const getServices = async (req, res, next) => {
-    const today = new Date();
-
     try {
         serviceModel
             .find({
-                createdAt: {
-                    $gte: today.setUTCHours(0, 0, 0, 0),
-                    $lte: today.setUTCHours(23, 59, 59, 999),
-                },
+                dateValue: req.query.dateValue,
             })
             .then(function (services) {
                 res.status(200).json(services);
@@ -26,6 +21,7 @@ const postServices = async (req, res, next) => {
         isTimmaCustomer,
         extraName,
         extraPrice,
+        dateValue,
     } = req.body;
     try {
         const newService = await serviceModel.create({
@@ -34,6 +30,7 @@ const postServices = async (req, res, next) => {
             isTimmaCustomer,
             extraName,
             extraPrice,
+            dateValue,
         });
 
         if (newService) {
